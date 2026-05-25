@@ -2,17 +2,26 @@ Module.register("MMM-Ecoflow",
 {
   defaults:
   {
-    token: "",
-    secret: "",
     updateInterval: 60000, // default update interval is 1 minute
-    version: null,
+
+    sn: null,
+    name: "",
+    pv1_watts: 0,
+    pv2_watts: 0,
+    grid_watts: 0,
+    pv1_voltage: 0,
+    pv2_voltage: 0,
+    grid_voltage: 0,
+    pv1_ampere: 0,
+    pv2_ampere: 0,
+    grid_ampere: 0,
+    wifi_rssi: null,
+    grid_frequency: null,
     temperature: null,
-    humidity: null,
-    battery: null,
-    deviceType: null,
-    status: "waiting for data",
-    deviceId: null,
-    displayName: "notDefined"
+    max_power: null,
+    last_update: null,
+    last_full_update: null,
+    state: "Offline"
   },
 
   /**
@@ -20,7 +29,7 @@ Module.register("MMM-Ecoflow",
    */
   getStyles()
   {
-    return ["SwitchBot.css"]
+    return ["Ecoflow.css"]
   },
 
   /**
@@ -28,17 +37,14 @@ Module.register("MMM-Ecoflow",
    */
   start() 
   {
-    this.token = this.config.token
-    this.secret = this.config.secret
     this.updateInterval = this.config.updateInterval
-    this.deviceId = this.config.deviceId
-    this.displayName = this.config.displayName
-    this.getSwitchBotData()
+
+    this.getEcoflowData()
 
     console.log("Update-Intervall (ms):", this.updateInterval)
 
     // set timeout for next random text
-    setInterval(() => this.getSwitchBotData(), this.updateInterval)
+    setInterval(() => this.getEcoflowData(), this.updateInterval)
   },
 
   /**
@@ -50,17 +56,31 @@ Module.register("MMM-Ecoflow",
    */
   socketNotificationReceived: function (notification, data)
   {
-    if (notification === "SWITCHBOT_DATA")
+    if (notification === "ECOFLOW_DATA")
       {
+        //this.sn = `${data.temperature}`
+        this.name = `${data.name}`
+        //this.pv1_watts = `${data.pv1_watts}`
+        //this.pv2_watts = `${data.pv2_watts}`
+        //this.grid_watts = `${data.grid_watts}`
+        //this.pv1_voltage = `${data.pv1_voltage}`
+        //this.pv2_voltage = `${data.pv2_voltage}`
+        //this.grid_voltage = `${data.grid_voltage}`
+        //this.pv1_ampere = `${data.pv1_ampere}`
+        //this.pv2_ampere = `${data.pv2_ampere}`
+        //this.grid_ampere = `${data.grid_ampere}`
+        //this.wifi_rssi = `${data.wifi_rssi}`
+        //this.grid_frequency = `${data.grid_frequency}`
         this.temperature = `${data.temperature}`
-        this.humidity = `${data.humidity}`
-        this.battery = `${data.battery}`
-        this.deviceType = `${data.deviceType}`
-        this.status = `${data.status}`
-        if(this.status === "success")
-          console.log("Daten aktualisiert:", this.temperature, this.humidity, this.battery, this.deviceType)
+        //this.max_power = `${data.max_power}`
+        //this.last_update = `${data.last_update}`
+        ////this.last_full_update = `${data.last_full_update}`
+        this.state = `${data.state}`
+
+        if(this.state === "Online")
+          console.log("Daten aktualisiert:", this.name, this.temperature, this.state)
         else
-          console.log("Fehler beim Abrufen der Daten!")
+          console.log("Ecoflow Stream ist offline und liefert aktuell keine Daten!")
         this.updateDom()
       }
   },
@@ -70,37 +90,37 @@ Module.register("MMM-Ecoflow",
    */
   getDom()
   {
-    let icon = "fa-battery-half"; // Default
+    /*let icon = "fa-battery-half"; // Default
     if (this.battery > 80) icon = "fa-battery-full";
     else if (this.battery > 60) icon = "fa-battery-three-quarters";
     else if (this.battery > 40) icon = "fa-battery-half";
     else if (this.battery > 20) icon = "fa-battery-quarter";
-    else icon = "fa-battery-empty";
+    else icon = "fa-battery-empty";*/
 
     const wrapper = document.createElement("div")
-    if (!this.status || this.status === "waiting for data")
+    if (!this.state || this.state === "waiting for data")
     {
-      wrapper.innerHTML = `<b>SwitchBot (${this.displayName})</b> - Warte auf Daten...`
+      wrapper.innerHTML = `<b>Ecoflow Stream (${this.name})</b> - Warte auf Daten...`
     }
-    else if (this.status === "success")
+    else if (this.state === "Online")
     {
       wrapper.classList.add("mediumText");
-      wrapper.innerHTML = `<b>SwitchBot (${this.displayName}) &nbsp; 
-      ${this.temperature}°C &nbsp; 
-      <i class="fas fa-tint"></i> ${this.humidity}% &nbsp;
+      wrapper.innerHTML = `<b>Ecoflow Stream (${this.name})</b> &nbsp; 
+      ${this.temperature}°C &nbsp;`
+      /*<i class="fas fa-tint"></i> ${this.humidity}% &nbsp;
       <i class="fas ${icon}"></i> ${this.battery}%
-      </b>`
+      </b>`*/
     } 
     else
     {
-      wrapper.innerHTML = `<b>SwitchBot Data - $${this.displayName}</b><br />Fehler beim abrufen der Daten: ${this.status}`
+      wrapper.innerHTML = `<b>Ecoflow Stream (${this.name})</b> - Stream ist offline`
     }
     return wrapper
   },
 
-  getSwitchBotData()
+  getEcoflowData()
   {
-    this.sendSocketNotification("GET_SWITCHBOT_DATA", { token: this.token, secret: this.secret, deviceId: this.deviceId, displayName: this.displayName })
+    this.sendSocketNotification("GET_ECOFLOW_DATA", {})
   },
 
   /**
@@ -111,14 +131,12 @@ Module.register("MMM-Ecoflow",
    */
   notificationReceived(notification, data)
   {
-    if (notification === "SWITCHBOT_DATA") {
-      console.log("Notification from other module reveived:", this.temperature, this.humidity, this.battery, this.deviceType)
+    if (notification === "ECOFLOW_DATA") {
+      console.log("Notification from other module reveived:", this.temperature, this.state)
+      this.name = `${data.name}`
       this.temperature = `${data.temperature} °C`
-      this.humidity = `${data.humidity} %`
-      this.battery = `${data.battery} %`
-      this.deviceType = `${data.deviceType}`
-      this.status = `${data.status}`
-      console.log("Daten aktualisiert:", this.temperature, this.humidity, this.battery, this.deviceType)
+      this.state = `${data.state}`
+      this.name = `${data.name}`
       this.updateDom()
     }
   }
