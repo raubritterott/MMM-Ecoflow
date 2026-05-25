@@ -1,6 +1,6 @@
 const NodeHelper = require("node_helper");
 const crypto = require("crypto");
-const https = require('https');
+const http = require('http');
 
 module.exports = NodeHelper.create(
 {
@@ -18,7 +18,7 @@ module.exports = NodeHelper.create(
           method: 'GET',
       };
       
-      const req = https.request(options, (res) =>
+      const req = http.request(options, (res) =>
       {
         let rawData = "";
       
