@@ -7,32 +7,15 @@ module.exports = NodeHelper.create(
 
   async socketNotificationReceived(notification, payload)
   {
-    if (notification === "GET_SWITCHBOT_DATA")
+    if (notification === "GET_ECOFLOW_DATA")
     {
-      const { token, secret, deviceId } = payload; // Extrahiere token und secret aus dem Payload-Objekt
-      console.log("GET_SWITCHBOT_DATA wurde aufgerufen");
-      //console.log("Token:", token);
-      //console.log("Secret:", secret);
-      const t = Date.now();
-      const nonce = "MagicMirrorAO";
-      const data = token + t + nonce;
-      const sign = crypto
-        .createHmac('sha256', secret)
-        .update(data)
-        .digest('base64');
+      console.log("GET_ECOFLOW_DATA wurde aufgerufen");
+
       const options = {
-          hostname: 'api.switch-bot.com',
-          port: 443,
-          path: `/v1.1/devices/${deviceId}/status`, ///${deviceId}/commands`,
+          hostname: 'localhost',
+          port: 5000,
+          path: `/api/ecoflow/flat`, ///${deviceId}/commands`,
           method: 'GET',
-          headers: {
-              "Authorization": token,
-              "sign": sign,
-              "nonce": nonce,
-              "t": t,
-              'Content-Type': 'application/json',
-              //'Content-Length': body.length,
-          },
       };
       
       const req = https.request(options, (res) =>
@@ -58,13 +41,13 @@ module.exports = NodeHelper.create(
 
             //console.log("Response:", json);
 
-            this.sendSocketNotification("SWITCHBOT_DATA", { version: version, temperature: temperature, humidity: humidity, battery: battery, deviceType: deviceType, status: status });
+            this.sendSocketNotification("ECOFLOW_DATA", { version: version, temperature: temperature, humidity: humidity, battery: battery, deviceType: deviceType, status: status });
 
           }
           catch (err)
           {
             console.error("Fehler beim JSON-Parsen:", err);
-            this.sendSocketNotification("SWITCHBOT_DATA", { status: "Parse error" });
+            this.sendSocketNotification("ECOFLOW_DATA", { status: "Parse error" });
           }
         });
       });
@@ -72,7 +55,7 @@ module.exports = NodeHelper.create(
       req.on("error", (error) =>
       {
         console.error("HTTPS error:", error);
-        this.sendSocketNotification("SWITCHBOT_DATA", { status: "HTTPS error" });
+        this.sendSocketNotification("ECOFLOW_DATA", { status: "HTTPS error" });
       });
 
       req.end();

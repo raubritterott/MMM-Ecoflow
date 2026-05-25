@@ -1,4 +1,4 @@
-Module.register("MMM-SwitchBot",
+Module.register("MMM-Ecoflow",
 {
   defaults:
   {

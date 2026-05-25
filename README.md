@@ -1,15 +1,15 @@
 
 
-# MMM-SwitchBot
+# MMM-Ecoflow
 
-*MMM-SwitchBot* is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) that displays that displays data of your SwitchBot sensors exposed by the Switchbot API.
+*MMM-Ecoflow* is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) that displays data of your Ecoflow Stream Inverter exposed by Ecoflow-MQTT-Bridge..
 
-For more information on the API [API](htttps://github.com/OpenWonderLabs/SwitchBotAPI).
+For more information see Ecoflow IoT Developer Platform (https://developer-eu.ecoflow.com/us/document/introduction).
 
 
 ## Screenshot
 
-![Example of MMM-SwitchBot](./example_1.png)
+![Example of MMM-Ecoflow](./example_1.png)
 
 ## Installation
 
@@ -19,7 +19,7 @@ In your terminal, go to the modules directory and clone the repository:
 
 ```bash
 cd ~/MagicMirror/modules
-git clone https://github.com/raubritterott/MMM-SwitchBot
+git clone https://github.com/raubritterott/MMM-Ecoflow
 ```
 
 ### Update
@@ -27,7 +27,7 @@ git clone https://github.com/raubritterott/MMM-SwitchBot
 Go to the module directory and pull the latest changes:
 
 ```bash
-cd ~/MagicMirror/modules/MMM-SwitchBot
+cd ~/MagicMirror/modules/MMM-Ecoflow
 git pull
 ```
 
@@ -41,7 +41,7 @@ Minimal configuration to use the module:
 
 ```js
     {
-        module: 'MMM-SwitchBot',
+        module: 'MMM-Ecoflow',
         position: "top_right",
         config: {
             token: 'yourToken',     // SwitchBot app developer settings
@@ -57,7 +57,7 @@ Configuration with all options:
 
 ```js
     {
-        module: 'MMM-SwitchBot',
+        module: 'MMM-Ecoflow',
         position: "top_right",
         config: {
             token: 'yourToken',     // SwitchBot app developer settings
