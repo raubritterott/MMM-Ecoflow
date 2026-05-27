@@ -58,29 +58,30 @@ Module.register("MMM-Ecoflow",
   {
     if (notification === "ECOFLOW_DATA")
       {
-        //this.sn = `${data.temperature}`
+        this.sn = `${data.temperature}`
         this.name = `${data.name}`
-        //this.pv1_watts = `${data.pv1_watts}`
-        //this.pv2_watts = `${data.pv2_watts}`
-        //this.grid_watts = `${data.grid_watts}`
-        //this.pv1_voltage = `${data.pv1_voltage}`
-        //this.pv2_voltage = `${data.pv2_voltage}`
-        //this.grid_voltage = `${data.grid_voltage}`
-        //this.pv1_ampere = `${data.pv1_ampere}`
-        //this.pv2_ampere = `${data.pv2_ampere}`
-        //this.grid_ampere = `${data.grid_ampere}`
-        //this.wifi_rssi = `${data.wifi_rssi}`
-        //this.grid_frequency = `${data.grid_frequency}`
+        this.pv1_watts = `${data.pv1_watts}`
+        this.pv2_watts = `${data.pv2_watts}`
+        this.grid_watts = `${data.grid_watts}`
+        this.pv1_voltage = `${data.pv1_voltage}`
+        this.pv2_voltage = `${data.pv2_voltage}`
+        this.grid_voltage = `${data.grid_voltage}`
+        this.pv1_ampere = `${data.pv1_ampere}`
+        this.pv2_ampere = `${data.pv2_ampere}`
+        this.grid_ampere = `${data.grid_ampere}`
+        this.wifi_rssi = `${data.wifi_rssi}`
+        this.grid_frequency = `${data.grid_frequency}`
         this.temperature = `${data.temperature}`
-        //this.max_power = `${data.max_power}`
-        //this.last_update = `${data.last_update}`
-        ////this.last_full_update = `${data.last_full_update}`
+        this.max_power = `${data.max_power}`
+        this.last_update = `${data.last_update}`
+        this.last_full_update = `${data.last_full_update}`
         this.state = `${data.state}`
 
         if(this.state === "Online")
           console.log("Daten aktualisiert:", this.name, this.temperature, this.state)
         else
           console.log("Ecoflow Stream ist offline und liefert aktuell keine Daten!")
+
         this.updateDom()
       }
   },
@@ -132,11 +133,25 @@ Module.register("MMM-Ecoflow",
   notificationReceived(notification, data)
   {
     if (notification === "ECOFLOW_DATA") {
-      console.log("Notification from other module reveived:", this.temperature, this.state)
+      console.log("Notification from other module received")
+      this.sn = `${data.sn}`
       this.name = `${data.name}`
-      this.temperature = `${data.temperature} °C`
+      this.pv1_watts = `${data.pv1_watts}`
+      this.pv2_watts = `${data.pv2_watts}`
+      this.grid_watts = `${data.grid_watts}`
+      this.pv1_voltage = `${data.pv1_voltage}`
+      this.pv2_voltage = `${data.pv2_voltage}`
+      this.grid_voltage = `${data.grid_voltage}`
+      this.pv1_ampere = `${data.pv1_ampere}`
+      this.pv2_ampere = `${data.pv2_ampere}`
+      this.grid_ampere = `${data.grid_ampere}`
+      this.wifi_rssi = `${data.wifi_rssi}`
+      this.grid_frequency = `${data.grid_frequency}`
+      this.temperature = `${data.temperature}`
+      this.max_power = `${data.max_power}`
+      this.last_update = `${data.last_update}`
+      this.last_full_update = `${data.last_full_update}`
       this.state = `${data.state}`
-      this.name = `${data.name}`
       this.updateDom()
     }
   }
