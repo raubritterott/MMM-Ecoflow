@@ -47,6 +47,15 @@ Module.register("MMM-Ecoflow",
     setInterval(() => this.getEcoflowData(), this.updateInterval)
   },
 
+  suspend: function () {
+    this.suspended = true;
+  },
+
+  resume: function () {
+    this.suspended = false;
+    this.updateDom(0);
+  }
+
   /**
    * Handle notifications received by the node helper.
    * So we can communicate between the node helper and the module.
