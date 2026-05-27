@@ -44,11 +44,7 @@ Minimal configuration to use the module:
         module: 'MMM-Ecoflow',
         position: "top_right",
         config: {
-            token: 'yourToken',     // SwitchBot app developer settings
-            secret: 'yourSecret',   // SwitchBot app developer settings
             updateInterval: 60000,
-            deviceId: 'deviceId',   // mac of your SwitchBot device 
-            displayName: 'NameDisplayedOnTheMirror'
         }
 	},
 ```
@@ -60,11 +56,7 @@ Configuration with all options:
         module: 'MMM-Ecoflow',
         position: "top_right",
         config: {
-            token: 'yourToken',     // SwitchBot app developer settings
-            secret: 'yourSecret',   // SwitchBot app developer settings
             updateInterval: 60000,
-            deviceId: 'deviceId',   // mac of your SwitchBot device 
-            displayName: 'NameDisplayedOnTheMirror'
         }
 	},
 ```

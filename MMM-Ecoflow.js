@@ -77,10 +77,8 @@ Module.register("MMM-Ecoflow",
         this.last_full_update = `${data.last_full_update}`
         this.state = `${data.state}`
 
-        console.log("Ecoflow state: ", this.state)
-        console.log("Ecoflow pv1_watts: ", this.pv1_watts)
         if(this.state === "Online")
-          console.log("Daten aktualisiert:", this.name, this.temperature, this.state)
+          console.log("Ecoflow Stream Daten aktualisiert!")
         else
           console.log("Ecoflow Stream ist offline und liefert aktuell keine Daten!")
 
@@ -100,7 +98,7 @@ Module.register("MMM-Ecoflow",
     else if (this.battery > 20) icon = "fa-battery-quarter";
     else icon = "fa-battery-empty";*/
 
-    const wrapper = document.createElement("div")
+    /*const wrapper = document.createElement("div")
     if (!this.state || this.state === "waiting for data")
     {
       wrapper.innerHTML = `<b>Ecoflow Stream (${this.name})</b> - Warte auf Daten...`
@@ -113,12 +111,22 @@ Module.register("MMM-Ecoflow",
       /*<i class="fas fa-tint"></i> ${this.humidity}% &nbsp;
       <i class="fas ${icon}"></i> ${this.battery}%
       </b>`*/
-    } 
+    /*} 
     else
     {
       wrapper.innerHTML = `<b>Ecoflow Stream (${this.name})</b> - Stream ist offline`
     }
-    return wrapper
+    return wrapper*/
+
+    console.log("Ecoflow getDom läuft");
+
+    const wrapper = document.createElement("div");
+
+    wrapper.style.backgroundColor = "red";
+    wrapper.style.color = "white";
+    wrapper.style.fontSize = "30px";
+
+    wrapper.innerHTML = "ECOFLOW TEST";
   },
 
   getEcoflowData()
