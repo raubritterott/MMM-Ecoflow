@@ -107,7 +107,7 @@ Module.register("MMM-Ecoflow",
     {
       wrapper.classList.add("mediumText");
       wrapper.innerHTML = `<b>Ecoflow Stream (${this.name})</b> &nbsp; 
-      ${this.temperature}°C &nbsp;`
+      ${this.grid_watts} Watt`
       /*<i class="fas fa-tint"></i> ${this.humidity}% &nbsp;
       <i class="fas ${icon}"></i> ${this.battery}%
       </b>`*/
