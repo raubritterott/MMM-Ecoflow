@@ -5,7 +5,7 @@ const http = require('http');
 module.exports = NodeHelper.create(
 {
 
-  async socketNotificationReceived(notification, payload)
+  async socketNotificationReceived(notification)
   {
     if (notification === "GET_ECOFLOW_DATA")
     {
