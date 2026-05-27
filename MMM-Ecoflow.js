@@ -98,7 +98,7 @@ Module.register("MMM-Ecoflow",
     else if (this.battery > 20) icon = "fa-battery-quarter";
     else icon = "fa-battery-empty";*/
 
-    /*const wrapper = document.createElement("div")
+    const wrapper = document.createElement("div")
     if (!this.state || this.state === "waiting for data")
     {
       wrapper.innerHTML = `<b>Ecoflow Stream (${this.name})</b> - Warte auf Daten...`
@@ -111,30 +111,12 @@ Module.register("MMM-Ecoflow",
       /*<i class="fas fa-tint"></i> ${this.humidity}% &nbsp;
       <i class="fas ${icon}"></i> ${this.battery}%
       </b>`*/
-    /*} 
+    } 
     else
     {
       wrapper.innerHTML = `<b>Ecoflow Stream (${this.name})</b> - Stream ist offline`
     }
-    return wrapper*/
-
-    console.log("getDom läuft");
-
-    const wrapper = document.createElement("div");
-
-    wrapper.innerHTML = "ECOFLOW TEST";
-
-    wrapper.style.backgroundColor = "red";
-    wrapper.style.color = "white";
-    wrapper.style.fontSize = "40px";
-    wrapper.style.padding = "50px";
-    wrapper.style.display = "block";
-    wrapper.style.position = "fixed";
-    wrapper.style.top = "100px";
-    wrapper.style.left = "100px";
-    wrapper.style.zIndex = "9999";
-
-    return wrapper;
+    return wrapper
 
   },
 
