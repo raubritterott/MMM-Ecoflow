@@ -39,7 +39,7 @@ module.exports = NodeHelper.create(
             //const battery = json.body?.battery === 0 ? "0" : json.body?.battery ?? "";
             //const deviceType = json.body?.deviceType || "";
             const state = json.body?.state || "Offline";
-            //console.log("Response:", json);
+            console.log("Response:", json);
 
             this.sendSocketNotification("ECOFLOW_DATA", { name: name, temperature: temperature, state: state });
 
