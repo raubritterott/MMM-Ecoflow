@@ -78,6 +78,7 @@ Module.register("MMM-Ecoflow",
         this.state = `${data.state}`
 
         console.log("Ecoflow state: ", this.state)
+        console.log("Ecoflow pv1_watts: ", this.pv1_watts)
         if(this.state === "Online")
           console.log("Daten aktualisiert:", this.name, this.temperature, this.state)
         else
