@@ -53,7 +53,8 @@ module.exports = NodeHelper.create(
             const last_update = json.body?.last_update ?? "";
             const last_full_update = json.body?.last_full_update ?? "";
 
-            //console.log("Response:", json);
+            console.log("Ecoflow Response:", json);
+            console.log("EcoflowState:",state)
 
             this.sendSocketNotification("ECOFLOW_DATA", { 
                  sn: sn
