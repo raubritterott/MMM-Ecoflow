@@ -118,15 +118,24 @@ Module.register("MMM-Ecoflow",
     }
     return wrapper*/
 
-    console.log("Ecoflow getDom läuft");
+    console.log("getDom läuft");
 
     const wrapper = document.createElement("div");
 
+    wrapper.innerHTML = "ECOFLOW TEST";
+
     wrapper.style.backgroundColor = "red";
     wrapper.style.color = "white";
-    wrapper.style.fontSize = "30px";
+    wrapper.style.fontSize = "40px";
+    wrapper.style.padding = "50px";
+    wrapper.style.display = "block";
+    wrapper.style.position = "fixed";
+    wrapper.style.top = "100px";
+    wrapper.style.left = "100px";
+    wrapper.style.zIndex = "9999";
 
-    wrapper.innerHTML = "ECOFLOW TEST";
+    return wrapper;
+
   },
 
   getEcoflowData()
