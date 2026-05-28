@@ -47,16 +47,6 @@ Module.register("MMM-Ecoflow",
     setInterval(() => this.getEcoflowData(), this.updateInterval)
   },
 
-
-  suspend: function () {
-    this.suspended = true;
-  },
-
-  resume: function () {
-    this.suspended = false;
-    this.updateDom(0);
-  },
-
   /**
    * Handle notifications received by the node helper.
    * So we can communicate between the node helper and the module.
@@ -68,21 +58,21 @@ Module.register("MMM-Ecoflow",
   {
     if (notification === "ECOFLOW_DATA")
       {
-        this.sn = `${data.temperature}`
+        this.sn = `${data.sn}`
         this.name = `${data.name}`
-        this.pv1_watts = `${data.pv1_watts}`
-        this.pv2_watts = `${data.pv2_watts}`
-        this.grid_watts = `${data.grid_watts}`
-        this.pv1_voltage = `${data.pv1_voltage}`
-        this.pv2_voltage = `${data.pv2_voltage}`
-        this.grid_voltage = `${data.grid_voltage}`
-        this.pv1_ampere = `${data.pv1_ampere}`
-        this.pv2_ampere = `${data.pv2_ampere}`
-        this.grid_ampere = `${data.grid_ampere}`
-        this.wifi_rssi = `${data.wifi_rssi}`
-        this.grid_frequency = `${data.grid_frequency}`
-        this.temperature = `${data.temperature}`
-        this.max_power = `${data.max_power}`
+        this.pv1_watts = data.pv1_watts
+        this.pv2_watts = data.pv2_watts
+        this.grid_watts = data.grid_watts
+        this.pv1_voltage = data.pv1_voltage
+        this.pv2_voltage = data.pv2_voltage
+        this.grid_voltage = data.grid_voltage
+        this.pv1_ampere = data.pv1_ampere
+        this.pv2_ampere = data.pv2_ampere
+        this.grid_ampere = data.grid_ampere
+        this.wifi_rssi = data.wifi_rssi
+        this.grid_frequency = data.grid_frequency
+        this.temperature = data.temperature
+        this.max_power = data.max_power
         this.last_update = `${data.last_update}`
         this.last_full_update = `${data.last_full_update}`
         this.state = `${data.state}`
