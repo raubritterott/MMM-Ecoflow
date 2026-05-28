@@ -55,7 +55,7 @@ Module.register("MMM-Ecoflow",
   resume: function () {
     this.suspended = false;
     this.updateDom(0);
-  }
+  },
 
   /**
    * Handle notifications received by the node helper.
