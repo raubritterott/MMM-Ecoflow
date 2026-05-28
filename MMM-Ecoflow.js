@@ -2,7 +2,7 @@ Module.register("MMM-Ecoflow",
 {
   defaults:
   {
-    updateInterval: 0.1 * 60 * 1000, // default update interval is 1 minute
+    updateInterval: 60 * 1000, // default update interval is 1 minute
 
     sn: null,
     name: "",
@@ -37,7 +37,7 @@ Module.register("MMM-Ecoflow",
    */
   start() 
   {
-    //this.updateInterval = this.config.updateInterval
+    this.updateInterval = this.config.updateInterval
 
     this.getEcoflowData()
 
