@@ -48,14 +48,14 @@ Module.register("MMM-Ecoflow",
   },
 
 
-  /*suspend: function () {
+  suspend: function () {
     this.suspended = true;
   },
 
   resume: function () {
     this.suspended = false;
     this.updateDom(0);
-  },*/
+  },
 
   /**
    * Handle notifications received by the node helper.
