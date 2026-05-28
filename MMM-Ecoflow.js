@@ -88,7 +88,7 @@ Module.register("MMM-Ecoflow",
         this.state = `${data.state}`
 
         if(this.state === "Online")
-          console.log("Ecoflow Stream Daten aktualisiert!")
+          console.log("Ecoflow Stream Daten aktualisiert: Watts: " + this.grid_watts + "W")
         else
           console.log("Ecoflow Stream ist offline und liefert aktuell keine Daten!")
 
