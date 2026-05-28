@@ -2,7 +2,7 @@ Module.register("MMM-Ecoflow",
 {
   defaults:
   {
-    updateInterval: 60000, // default update interval is 1 minute
+    updateInterval: 0.1 * 60 * 1000, // default update interval is 1 minute
 
     sn: null,
     name: "",
@@ -48,14 +48,14 @@ Module.register("MMM-Ecoflow",
   },
 
 
-  suspend: function () {
+  /*suspend: function () {
     this.suspended = true;
   },
 
   resume: function () {
     this.suspended = false;
     this.updateDom(0);
-  },
+  },*/
 
   /**
    * Handle notifications received by the node helper.
