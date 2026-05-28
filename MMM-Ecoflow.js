@@ -37,7 +37,7 @@ Module.register("MMM-Ecoflow",
    */
   start() 
   {
-    this.updateInterval = this.config.updateInterval
+    //this.updateInterval = this.config.updateInterval
 
     this.getEcoflowData()
 
