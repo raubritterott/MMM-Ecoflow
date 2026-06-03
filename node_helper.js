@@ -12,13 +12,15 @@ module.exports = NodeHelper.create(
       console.log("GET_ECOFLOW_DATA wurde aufgerufen");
 
       const { apiEndpoint } = payload;
-      console.log("API Endpoint:", apiEndpoint);
+      const url = new URL(apiEndpoint);
+
+      //console.log("API Endpoint:", apiEndpoint);
 
       const options = {
-          hostname: 'localhost',
-          port: 5000,
-          path: `${apiEndpoint}`, ///${deviceId}/commands`,
-          method: 'GET',
+          hostname: url.hostname,
+          port: url.port,
+          path: url.pathname,
+          method: 'GET'
       };
       
       const req = http.request(options, (res) =>
