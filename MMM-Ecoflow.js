@@ -39,6 +39,7 @@ Module.register("MMM-Ecoflow",
   start() 
   {
     this.updateInterval = this.config.updateInterval
+    this.apiEndpoint = this.config.apiEndpoint
 
     this.getEcoflowData()
 
@@ -118,7 +119,7 @@ Module.register("MMM-Ecoflow",
 
   getEcoflowData()
   {
-    this.sendSocketNotification("GET_ECOFLOW_DATA", {})
+    this.sendSocketNotification("GET_ECOFLOW_DATA", {apiEndpoint: this.apiEndpoint})
   },
 
   /**

@@ -5,16 +5,18 @@ const http = require('http');
 module.exports = NodeHelper.create(
 {
 
-  async socketNotificationReceived(notification)
+  async socketNotificationReceived(notification, payload)
   {
     if (notification === "GET_ECOFLOW_DATA")
     {
       console.log("GET_ECOFLOW_DATA wurde aufgerufen");
 
+      const { apiEndpoint } = payload;
+
       const options = {
           hostname: 'localhost',
           port: 5000,
-          path: `/api/ecoflow/flat`, ///${deviceId}/commands`,
+          path: `${apiEndpoint}`, ///${deviceId}/commands`,
           method: 'GET',
       };
       
