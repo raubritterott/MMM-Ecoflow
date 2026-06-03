@@ -3,6 +3,7 @@ Module.register("MMM-Ecoflow",
   defaults:
   {
     updateInterval: 60 * 1000, // default update interval is 1 minute
+    apiEndpoint: "",
 
     sn: null,
     name: "",
@@ -41,7 +42,7 @@ Module.register("MMM-Ecoflow",
     this.updateInterval = this.config.updateInterval
     this.apiEndpoint = this.config.apiEndpoint
     console.log("Update-Intervall (ms):", this.updateInterval)
-    console.log("API Endpoint:", this.apiEndpoint)
+    console.log("API Endpoint:", this.apiEndpointapiEndpoint)
 
     this.getEcoflowData()
 
