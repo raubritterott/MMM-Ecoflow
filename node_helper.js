@@ -12,6 +12,7 @@ module.exports = NodeHelper.create(
       console.log("GET_ECOFLOW_DATA wurde aufgerufen");
 
       const { apiEndpoint } = payload;
+      console.log("API Endpoint:", apiEndpoint);
 
       const options = {
           hostname: 'localhost',
