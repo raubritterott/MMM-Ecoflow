@@ -99,22 +99,15 @@ Module.register("MMM-Ecoflow",
     else icon = "fa-battery-empty";*/
 
     const wrapper = document.createElement("div")
-    if (!this.state || this.state === "waiting for data")
-    {
-      wrapper.innerHTML = `<b>Ecoflow Stream (${this.name})</b> - Warte auf Daten...`
-    }
-    else if (this.state === "Online")
+    if (this.state === "Online")
     {
       wrapper.classList.add("mediumText");
       wrapper.innerHTML = `<b>Ecoflow Stream (${this.name})</b> &nbsp; 
       ${this.grid_watts} Watt`
-      /*<i class="fas fa-tint"></i> ${this.humidity}% &nbsp;
-      <i class="fas ${icon}"></i> ${this.battery}%
-      </b>`*/
-    } 
+    }
     else
     {
-      wrapper.innerHTML = `<b>Ecoflow Stream (${this.name})</b> - Stream ist offline`
+      wrapper.innerHTML = `<b>Ecoflow Stream</b> - MQTT ${this.mqtt_connected} - Stream ist offline`
     }
     return wrapper
 
