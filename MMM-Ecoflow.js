@@ -81,11 +81,10 @@ Module.register("MMM-Ecoflow",
         this.state = `${data.state}`
         this.mqtt_connected = `${data.mqtt_connected}`
 
-        if(this.state === "Online")
-          console.log("Ecoflow Stream Daten aktualisiert: Watts: " + this.grid_watts + "W")
-        else
-          console.log("Ecoflow Stream MQTT Status: " + this.mqtt_connected)
-          console.log("Ecoflow Stream ist offline und liefert aktuell keine Daten!")
+        //if(this.state === "Online")
+        //  console.log("Ecoflow Stream Daten aktualisiert: Watts: " + this.grid_watts + "W")
+        //else
+        //  console.log("Ecoflow Stream ist offline und liefert aktuell keine Daten!")
 
         this.updateDom()
       }
@@ -94,27 +93,82 @@ Module.register("MMM-Ecoflow",
   /**
    * Render the page we're on.
    */
-  getDom()
-  {
-    /*let icon = "fa-battery-half"; // Default
-    if (this.battery > 80) icon = "fa-battery-full";
-    else if (this.battery > 60) icon = "fa-battery-three-quarters";
-    else if (this.battery > 40) icon = "fa-battery-half";
-    else if (this.battery > 20) icon = "fa-battery-quarter";
-    else icon = "fa-battery-empty";*/
+  getDom() {
+    const wrapper = document.createElement("div");
+    if (this.state !== "Online") {
+        wrapper.innerHTML = `
+            <div class="ecoflow-offline">
+                <div class="title">⚡ EcoFlow Stream</div>
+                <div class="status">🔴 Offline</div>
+                <div class="small">MQTT: ${this.mqtt_connected}</div>
+            </div>
+        `;
+        return wrapper;
+    }
 
-    const wrapper = document.createElement("div")
-    if (this.state === "Online")
-    {
-      wrapper.classList.add("mediumText");
-      wrapper.innerHTML = `<b>Ecoflow Stream (${this.name})</b> &nbsp; 
-      ${this.grid_watts} Watt`
-    }
-    else
-    {
-      wrapper.innerHTML = `<b>Ecoflow Stream</b> - MQTT ${this.mqtt_connected} - Stream ist offline`
-    }
-    return wrapper
+    wrapper.innerHTML = `
+        <div class="ecoflow-card">
+
+            <div class="ecoflow-header">
+                <span>⚡ EcoFlow Stream</span>
+                <span class="online">🟢 Online</span>
+            </div>
+
+            <div class="ecoflow-name">
+                ${this.name}
+            </div>
+
+            <div class="ecoflow-power">
+                <div class="big-value">${this.grid_watts} W</div>
+                <div class="small">Netzleistung</div>
+            </div>
+
+            <div class="ecoflow-grid">
+
+                <div class="item">
+                    <div class="label">☀️ PV1</div>
+                    <div>${this.pv1_watts} W</div>
+                    <div class="small">${this.pv1_voltage} V · ${this.pv1_ampere} A</div>
+                </div>
+
+                <div class="item">
+                    <div class="label">☀️ PV2</div>
+                    <div>${this.pv2_watts} W</div>
+                    <div class="small">${this.pv2_voltage} V · ${this.pv2_ampere} A</div>
+                </div>
+
+                <div class="item">
+                    <div class="label">🔌 Netz</div>
+                    <div>${this.grid_watts} W</div>
+                    <div class="small">${this.grid_voltage} V · ${this.grid_ampere} A</div>
+                </div>
+
+                <div class="item">
+                    <div class="label">🌡 Temperatur</div>
+                    <div>${this.temperature} °C</div>
+                </div>
+
+                <div class="item">
+                    <div class="label">📶 WLAN</div>
+                    <div>${this.wifi_rssi} dBm</div>
+                </div>
+
+                <div class="item">
+                    <div class="label">⚙️ Frequenz</div>
+                    <div>${this.grid_frequency} Hz</div>
+                </div>
+
+            </div>
+
+            <div class="ecoflow-footer">
+                <div>Max: ${this.max_power} W</div>
+                <div>${this.last_update}</div>
+            </div>
+
+        </div>
+    `;
+
+    return wrapper;
 
   },
 

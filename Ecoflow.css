@@ -1,19 +1,75 @@
-
-.MMM-Ecoflow div b {
-  font-weight: 600; 
-  color: darkgrey;  
+.ecoflow-card {
+width: 380px;
+padding: 15px;
+border-radius: 12px;
+background: rgba(255,255,255,0.05);
+border: 1px solid rgba(255,255,255,0.1);
 }
 
-.smallText {
-    font-size: 18px;
+.ecoflow-header {
+display: flex;
+justify-content: space-between;
+font-size: 18px;
+margin-bottom: 8px;
 }
 
-.mediumText {
-    font-size: 24px;
+.ecoflow-name {
+font-size: 14px;
+opacity: 0.7;
+margin-bottom: 15px;
 }
 
-.largeText {
-    font-size: 30px;
+.online {
+color: #4CAF50;
 }
 
+.ecoflow-power {
+text-align: center;
+margin-bottom: 15px;
+}
 
+.big-value {
+font-size: 42px;
+font-weight: bold;
+color: #FFD54F;
+}
+
+.ecoflow-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+}
+
+.item {
+background: rgba(255,255,255,0.04);
+padding: 8px;
+border-radius: 8px;
+}
+
+.label {
+font-size: 13px;
+opacity: 0.7;
+}
+
+.small {
+font-size: 11px;
+opacity: 0.6;
+}
+
+.ecoflow-footer {
+margin-top: 15px;
+font-size: 11px;
+opacity: 0.5;
+}
+
+.ecoflow-offline {
+padding: 15px;
+border-radius: 12px;
+background: rgba(255,0,0,0.1);
+border: 1px solid rgba(255,0,0,0.3);
+}
+
+.status {
+margin-top: 10px;
+font-size: 18px;
+}
