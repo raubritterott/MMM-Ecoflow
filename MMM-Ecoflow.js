@@ -41,13 +41,16 @@ Module.register("MMM-Ecoflow",
   {
     this.updateInterval = this.config.updateInterval
     this.apiEndpoint = this.config.apiEndpoint
+
     console.log("Update-Intervall (ms):", this.updateInterval)
-    console.log("API Endpoint:", this.apiEndpointapiEndpoint)
+    console.log("API Endpoint:", this.apiEndpoint)
 
     this.getEcoflowData()
 
     // set timeout for next random text
     setInterval(() => this.getEcoflowData(), this.updateInterval)
+
+    this.updateDom(0);
   },
 
   /**
