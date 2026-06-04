@@ -59,8 +59,13 @@ opacity: 0.75;
 margin-bottom: 3px;
 }
 
-.mmm-ecoflow-small {
+.mmm-ecoflow-medium {
 font-size: 25px;
+opacity: 0.65;
+}
+
+.mmm-ecoflow-small {
+font-size: 15px;
 opacity: 0.65;
 }
 

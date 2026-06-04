@@ -100,15 +100,27 @@ Module.register("MMM-Ecoflow",
   const wrapper = document.createElement("div");
   wrapper.classdeviceName = "mmm-ecoflow";
   if (this.state !== "Online") {
-      wrapper.innerHTML = `
+      wrapper.innerHTML = /*`
           <div class="mmm-ecoflow-offline">
               <div class="mmm-ecoflow-title">⚡ EcoFlow Stream</div>
               <div class="mmm-ecoflow-status">🔴 Offline</div>
-              <div class="mmm-ecoflow-small">
+              <div class=".mmm-ecoflow-small">
                   MQTT: ${this.mqtt_connected}
               </div>
           </div>
-      `;
+      `;*/
+
+    `
+    <div class="mmm-ecoflow-card">
+    <div class="mmm-ecoflow-header">
+        <span>⚡ EcoFlow Stream</span>
+        <span class="mmm-ecoflow-offline">🔴 Offline</span>
+        <div class=".mmm-ecoflow-small">
+            MQTT: ${this.mqtt_connected}
+        </div>
+    </div>
+
+    `;
       return wrapper;
   }
 
@@ -128,7 +140,7 @@ Module.register("MMM-Ecoflow",
               <div class="mmm-ecoflow-big-value">
                   ${this.grid_watts} W
               </div>
-              <div class="mmm-ecoflow-small">
+              <div class=".mmm-ecoflow-medium">
                   Netzleistung
               </div>
           </div>
@@ -138,7 +150,7 @@ Module.register("MMM-Ecoflow",
               <div class="mmm-ecoflow-item">
                   <div class="mmm-ecoflow-label">☀️ PV1</div>
                   <div>${this.pv1_watts} W</div>
-                  <div class="mmm-ecoflow-small">
+                  <div class=".mmm-ecoflow-medium">
                       ${this.pv1_voltage} V · ${this.pv1_ampere} A
                   </div>
               </div>
@@ -146,7 +158,7 @@ Module.register("MMM-Ecoflow",
               <div class="mmm-ecoflow-item">
                   <div class="mmm-ecoflow-label">☀️ PV2</div>
                   <div>${this.pv2_watts} W</div>
-                  <div class="mmm-ecoflow-small">
+                  <div class=".mmm-ecoflow-medium">
                       ${this.pv2_voltage} V · ${this.pv2_ampere} A
                   </div>
               </div>
@@ -154,7 +166,7 @@ Module.register("MMM-Ecoflow",
               <div class="mmm-ecoflow-item">
                   <div class="mmm-ecoflow-label">🔌 Netz</div>
                   <div>${this.grid_watts} W</div>
-                  <div class="mmm-ecoflow-small">
+                  <div class=".mmm-ecoflow-medium">
                       ${this.grid_voltage} V · ${this.grid_ampere} A
                   </div>
               </div>
