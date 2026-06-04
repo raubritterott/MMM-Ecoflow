@@ -12,9 +12,9 @@ width: 453px;
 }
 
 .mmm-ecoflow-header {
-display: flex;
+/*display: flex;*/
 justify-content: space-between;
-align-items: center;
+/*align-items: center;*/
 margin-bottom: 8px;
 font-size: 28px;
 }
@@ -87,6 +87,7 @@ width: 453px;
 
 .mmm-ecoflow-status {
 color: rgb(250, 60, 60);
+margin-left: 134px;
 }
 
 .mmm-ecoflow-title {
