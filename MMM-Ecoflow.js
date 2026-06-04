@@ -6,7 +6,7 @@ Module.register("MMM-Ecoflow",
     apiEndpoint: "",
 
     sn: null,
-    name: "",
+    deviceName: "",
     pv1_watts: 0,
     pv2_watts: 0,
     grid_watts: 0,
@@ -65,7 +65,7 @@ Module.register("MMM-Ecoflow",
     if (notification === "ECOFLOW_DATA")
       {
         this.sn = `${data.sn}`
-        this.name = `${data.name}`
+        this.deviceName = `${data.deviceName}`
         this.pv1_watts = data.pv1_watts
         this.pv2_watts = data.pv2_watts
         this.grid_watts = data.grid_watts
@@ -98,7 +98,7 @@ Module.register("MMM-Ecoflow",
    */
   getDom() {
   const wrapper = document.createElement("div");
-  wrapper.className = "mmm-ecoflow";
+  wrapper.classdeviceName = "mmm-ecoflow";
   if (this.state !== "Online") {
       wrapper.innerHTML = `
           <div class="mmm-ecoflow-offline">
@@ -120,8 +120,8 @@ Module.register("MMM-Ecoflow",
               <span class="mmm-ecoflow-online">🟢 Online</span>
           </div>
 
-          <div class="mmm-ecoflow-name">
-              ${this.name}
+          <div class="mmm-ecoflow-deviceName">
+              ${this.deviceName}
           </div>
 
           <div class="mmm-ecoflow-power">
@@ -195,7 +195,7 @@ Module.register("MMM-Ecoflow",
   /**
    * This is the place to receive notifications from other modules or the system.
    *
-   * @param {string} notification The notification ID, it is preferred that it prefixes your module name
+   * @param {string} notification The notification ID, it is preferred that it prefixes your module deviceName
    * @param {any} data the payload type.
    */
   notificationReceived(notification, data)
@@ -203,7 +203,7 @@ Module.register("MMM-Ecoflow",
     if (notification === "ECOFLOW_DATA") {
       console.log("Notification from other module received")
       this.sn = `${data.sn}`
-      this.name = `${data.name}`
+      this.deviceName = `${data.deviceName}`
       this.pv1_watts = data.pv1_watts
       this.pv2_watts = data.pv2_watts
       this.grid_watts = data.grid_watts
