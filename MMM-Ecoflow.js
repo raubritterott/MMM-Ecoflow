@@ -106,7 +106,7 @@ Module.register("MMM-Ecoflow",
 
   const wrapper = document.createElement("div");
   wrapper.classdeviceName = "mmm-ecoflow";
-  if (this.state !== "Online") {
+  if (this.state === "Online") {
       wrapper.innerHTML = `
           <div class="mmm-ecoflow-offline">
               <div class="mmm-ecoflow-header">⚡ EcoFlow Stream</div>
