@@ -102,9 +102,9 @@ Module.register("MMM-Ecoflow",
   if (this.state !== "Online") {
       wrapper.innerHTML = `
           <div class="mmm-ecoflow-offline">
-              <div class="mmm-ecoflow-title">⚡ EcoFlow Stream</div>
+              <div class="mmm-ecoflow-header">⚡ EcoFlow Stream</div>
               <div class="mmm-ecoflow-status">🔴 Offline</div>
-              <div class=".mmm-ecoflow-small">
+              <div class="mmm-ecoflow-small">
                   MQTT: ${this.mqtt_connected}
               </div>
           </div>
