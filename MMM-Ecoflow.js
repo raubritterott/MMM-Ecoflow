@@ -94,84 +94,94 @@ Module.register("MMM-Ecoflow",
    * Render the page we're on.
    */
   getDom() {
-    const wrapper = document.createElement("div");
-    if (this.state !== "Online") {
-        wrapper.innerHTML = `
-            <div class="ecoflow-offline">
-                <div class="title">⚡ EcoFlow Stream</div>
-                <div class="status">🔴 Offline</div>
-                <div class="small">MQTT: ${this.mqtt_connected}</div>
-            </div>
-        `;
-        return wrapper;
-    }
-    else
-      {
-        wrapper.innerHTML = `
-          <div class="ecoflow-card">
+  const wrapper = document.createElement("div");
+  wrapper.className = "mmm-ecoflow";
+  if (this.state !== "Online") {
+      wrapper.innerHTML = `
+          <div class="mmm-ecoflow-offline">
+              <div class="mmm-ecoflow-title">⚡ EcoFlow Stream</div>
+              <div class="mmm-ecoflow-status">🔴 Offline</div>
+              <div class="mmm-ecoflow-small">
+                  MQTT: ${this.mqtt_connected}
+              </div>
+          </div>
+      `;
+      return wrapper;
+  }
 
-              <div class="ecoflow-header">
-                  <span>⚡ EcoFlow Stream</span>
-                  <span class="online">🟢 Online</span>
+  wrapper.innerHTML = `
+      <div class="mmm-ecoflow-card">
+
+          <div class="mmm-ecoflow-header">
+              <span>⚡ EcoFlow Stream</span>
+              <span class="mmm-ecoflow-online">🟢 Online</span>
+          </div>
+
+          <div class="mmm-ecoflow-name">
+              ${this.name}
+          </div>
+
+          <div class="mmm-ecoflow-power">
+              <div class="mmm-ecoflow-big-value">
+                  ${this.grid_watts} W
+              </div>
+              <div class="mmm-ecoflow-small">
+                  Netzleistung
+              </div>
+          </div>
+
+          <div class="mmm-ecoflow-grid">
+
+              <div class="mmm-ecoflow-item">
+                  <div class="mmm-ecoflow-label">☀️ PV1</div>
+                  <div>${this.pv1_watts} W</div>
+                  <div class="mmm-ecoflow-small">
+                      ${this.pv1_voltage} V · ${this.pv1_ampere} A
+                  </div>
               </div>
 
-              <div class="ecoflow-name">
-                  ${this.name}
+              <div class="mmm-ecoflow-item">
+                  <div class="mmm-ecoflow-label">☀️ PV2</div>
+                  <div>${this.pv2_watts} W</div>
+                  <div class="mmm-ecoflow-small">
+                      ${this.pv2_voltage} V · ${this.pv2_ampere} A
+                  </div>
               </div>
 
-              <div class="ecoflow-power">
-                  <div class="big-value">${this.grid_watts} W</div>
-                  <div class="small">Netzleistung</div>
+              <div class="mmm-ecoflow-item">
+                  <div class="mmm-ecoflow-label">🔌 Netz</div>
+                  <div>${this.grid_watts} W</div>
+                  <div class="mmm-ecoflow-small">
+                      ${this.grid_voltage} V · ${this.grid_ampere} A
+                  </div>
               </div>
 
-              <div class="ecoflow-grid">
-
-                  <div class="item">
-                      <div class="label">☀️ PV1</div>
-                      <div>${this.pv1_watts} W</div>
-                      <div class="small">${this.pv1_voltage} V · ${this.pv1_ampere} A</div>
-                  </div>
-
-                  <div class="item">
-                      <div class="label">☀️ PV2</div>
-                      <div>${this.pv2_watts} W</div>
-                      <div class="small">${this.pv2_voltage} V · ${this.pv2_ampere} A</div>
-                  </div>
-
-                  <div class="item">
-                      <div class="label">🔌 Netz</div>
-                      <div>${this.grid_watts} W</div>
-                      <div class="small">${this.grid_voltage} V · ${this.grid_ampere} A</div>
-                  </div>
-
-                  <div class="item">
-                      <div class="label">🌡 Temperatur</div>
-                      <div>${this.temperature} °C</div>
-                  </div>
-
-                  <div class="item">
-                      <div class="label">📶 WLAN</div>
-                      <div>${this.wifi_rssi} dBm</div>
-                  </div>
-
-                  <div class="item">
-                      <div class="label">⚙️ Frequenz</div>
-                      <div>${this.grid_frequency} Hz</div>
-                  </div>
-
+              <div class="mmm-ecoflow-item">
+                  <div class="mmm-ecoflow-label">🌡 Temperatur</div>
+                  <div>${this.temperature} °C</div>
               </div>
 
-              <div class="ecoflow-footer">
-                  <div>Max: ${this.max_power} W</div>
-                  <div>${this.last_update}</div>
+              <div class="mmm-ecoflow-item">
+                  <div class="mmm-ecoflow-label">📶 WLAN</div>
+                  <div>${this.wifi_rssi} dBm</div>
+              </div>
+
+              <div class="mmm-ecoflow-item">
+                  <div class="mmm-ecoflow-label">⚙️ Frequenz</div>
+                  <div>${this.grid_frequency} Hz</div>
               </div>
 
           </div>
-      `;
 
-      return wrapper;
-    
-    }
+          <div class="mmm-ecoflow-footer">
+              <div>Max: ${this.max_power} W</div>
+              <div>${this.last_update}</div>
+          </div>
+
+      </div>
+  `;
+
+  return wrapper;
   },
 
   getEcoflowData()

@@ -1,75 +1,87 @@
-.ecoflow-card {
+.mmm-ecoflow {
 width: 380px;
+color: #ffffff;
+}
+
+.mmm-ecoflow-card {
 padding: 15px;
 border-radius: 12px;
 background: rgba(255,255,255,0.05);
-border: 1px solid rgba(255,255,255,0.1);
+border: 1px solid rgba(255,255,255,0.12);
 }
 
-.ecoflow-header {
+.mmm-ecoflow-header {
 display: flex;
 justify-content: space-between;
-font-size: 18px;
+align-items: center;
 margin-bottom: 8px;
+font-size: 18px;
 }
 
-.ecoflow-name {
-font-size: 14px;
-opacity: 0.7;
+.mmm-ecoflow-online {
+color: #6bd968;
+}
+
+.mmm-ecoflow-name {
 margin-bottom: 15px;
+font-size: 14px;
+opacity: 0.75;
 }
 
-.online {
-color: #4CAF50;
-}
-
-.ecoflow-power {
+.mmm-ecoflow-power {
 text-align: center;
 margin-bottom: 15px;
 }
 
-.big-value {
+.mmm-ecoflow-big-value {
 font-size: 42px;
-font-weight: bold;
-color: #FFD54F;
+font-weight: 700;
+line-height: 1;
+color: #ffd54f;
 }
 
-.ecoflow-grid {
+.mmm-ecoflow-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 10px;
 }
 
-.item {
-background: rgba(255,255,255,0.04);
+.mmm-ecoflow-item {
 padding: 8px;
 border-radius: 8px;
+background: rgba(255,255,255,0.04);
 }
 
-.label {
+.mmm-ecoflow-label {
 font-size: 13px;
-opacity: 0.7;
+opacity: 0.75;
+margin-bottom: 3px;
 }
 
-.small {
+.mmm-ecoflow-small {
 font-size: 11px;
-opacity: 0.6;
+opacity: 0.65;
 }
 
-.ecoflow-footer {
+.mmm-ecoflow-footer {
 margin-top: 15px;
 font-size: 11px;
-opacity: 0.5;
+opacity: 0.55;
 }
 
-.ecoflow-offline {
+.mmm-ecoflow-offline {
 padding: 15px;
 border-radius: 12px;
-background: rgba(255,0,0,0.1);
-border: 1px solid rgba(255,0,0,0.3);
+border: 1px solid rgba(255,0,0,0.35);
+background: rgba(255,0,0,0.08);
 }
 
-.status {
-margin-top: 10px;
+.mmm-ecoflow-title {
 font-size: 18px;
+margin-bottom: 8px;
+}
+
+.mmm-ecoflow-status {
+font-size: 20px;
+margin-bottom: 8px;
 }
