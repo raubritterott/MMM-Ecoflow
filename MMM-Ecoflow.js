@@ -97,6 +97,13 @@ Module.register("MMM-Ecoflow",
    * Render the page we're on.
    */
   getDom() {
+
+  if (this.mqtt_connected === "true") {
+    this.mqtt_connected = "✅ Verbunden"
+  } else {
+    this.mqtt_connected = "❌ Nicht verbunden"
+  }
+
   const wrapper = document.createElement("div");
   wrapper.classdeviceName = "mmm-ecoflow";
   if (this.state !== "Online") {
