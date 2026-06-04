@@ -1,9 +1,10 @@
 .mmm-ecoflow {
-width: 380px;
+width: 500px;
 color: #ffffff;
 }
 
 .mmm-ecoflow-card {
+margin-top: 30px;
 padding: 15px;
 border-radius: 12px;
 background: rgba(255,255,255,0.05);
@@ -15,7 +16,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 margin-bottom: 8px;
-font-size: 18px;
+font-size: 28px;
 }
 
 .mmm-ecoflow-online {
@@ -23,14 +24,14 @@ color: #6bd968;
 }
 
 .mmm-ecoflow-name {
-margin-bottom: 15px;
-font-size: 14px;
+margin-bottom: 20px;
+font-size: 2px;
 opacity: 0.75;
 }
 
 .mmm-ecoflow-power {
 text-align: center;
-margin-bottom: 15px;
+margin-bottom: 25px;
 }
 
 .mmm-ecoflow-big-value {
@@ -53,19 +54,19 @@ background: rgba(255,255,255,0.04);
 }
 
 .mmm-ecoflow-label {
-font-size: 13px;
+font-size: 25px;
 opacity: 0.75;
 margin-bottom: 3px;
 }
 
 .mmm-ecoflow-small {
-font-size: 11px;
+font-size: 25px;
 opacity: 0.65;
 }
 
 .mmm-ecoflow-footer {
 margin-top: 15px;
-font-size: 11px;
+font-size: 15px;
 opacity: 0.55;
 }
 
