@@ -98,7 +98,7 @@ Module.register("MMM-Ecoflow",
    */
   getDom() {
 
-  if (this.mqtt_connected === "true") {
+  if (this.mqtt_connected !== "true") {
     this.mqtt_connected = "✅ Verbunden"
   } else {
     this.mqtt_connected = "❌ Nicht verbunden"
@@ -109,8 +109,8 @@ Module.register("MMM-Ecoflow",
   if (this.state === "Online") {
       wrapper.innerHTML = `
           <div class="mmm-ecoflow-offline">
-              <div class="mmm-ecoflow-header">⚡ EcoFlow Stream</div>
-              <div class="mmm-ecoflow-status">🔴 Offline</div>
+              <span class="mmm-ecoflow-header">⚡ EcoFlow Stream</span>
+              <span class="mmm-ecoflow-status">🔴 Offline</span>
               <div class="mmm-ecoflow-small">
                   MQTT: ${this.mqtt_connected}
               </div>
