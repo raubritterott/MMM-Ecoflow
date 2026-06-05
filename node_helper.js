@@ -39,7 +39,7 @@ module.exports = NodeHelper.create(
             const json = JSON.parse(rawData);
 
             const sn = json.sn ?? "";
-            const name = json.name ?? "";
+            const device_name = json.name ?? "";
             const pv1_ampere = json.pv1_ampere === 0 ? "0.00" : json?.pv1_ampere ?? "";
             const pv2_ampere = json.pv2_ampere === 0 ? "0.00" : json?.pv2_ampere ?? "";
             const grid_ampere = json.grid_ampere === 0 ? "0.00" : json?.grid_ampere ?? "";
@@ -63,7 +63,7 @@ module.exports = NodeHelper.create(
 
             this.sendSocketNotification("ECOFLOW_DATA", { 
                  sn: sn
-                ,name: name
+                ,device_name: device_name
                 ,pv1_ampere: pv1_ampere
                 ,pv2_ampere: pv2_ampere
                 ,grid_ampere: grid_ampere
