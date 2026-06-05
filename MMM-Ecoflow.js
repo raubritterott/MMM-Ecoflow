@@ -6,7 +6,7 @@ Module.register("MMM-Ecoflow",
     apiEndpoint: "",
 
     sn: null,
-    deviceName: "",
+    device_name: "",
     pv1_watts: 0,
     pv2_watts: 0,
     grid_watts: 0,
@@ -65,7 +65,7 @@ Module.register("MMM-Ecoflow",
     if (notification === "ECOFLOW_DATA")
       {
         this.sn = `${data.sn}`
-        this.deviceName = `${data.deviceName}`
+        this.device_name = `${data.device_name}`
         this.pv1_watts = data.pv1_watts
         this.pv2_watts = data.pv2_watts
         this.grid_watts = data.grid_watts
@@ -129,7 +129,7 @@ Module.register("MMM-Ecoflow",
           </div>
 
           <div class="mmm-ecoflow-deviceName">
-              ${this.deviceName}
+              ${this.device_name}
           </div>
 
           <div class="mmm-ecoflow-power">
@@ -211,7 +211,7 @@ Module.register("MMM-Ecoflow",
     if (notification === "ECOFLOW_DATA") {
       console.log("Notification from other module received")
       this.sn = `${data.sn}`
-      this.deviceName = `${data.deviceName}`
+      this.device_name = `${data.device_name}`
       this.pv1_watts = data.pv1_watts
       this.pv2_watts = data.pv2_watts
       this.grid_watts = data.grid_watts
