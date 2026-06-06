@@ -49,6 +49,7 @@ Minimal configuration to use the module:
         position: "top_right",
         config: {
             updateInterval: 60000,
+			apiEndpoint: "https://192.168.2.1:5000/api/ecoflow/flat"
         }
 	},
 ```
@@ -61,6 +62,7 @@ Configuration with all options:
         position: "top_right",
         config: {
             updateInterval: 60000,
+			apiEndpoint: "https://192.168.2.1:5000/api/ecoflow/flat"
         }
 	},
 ```
