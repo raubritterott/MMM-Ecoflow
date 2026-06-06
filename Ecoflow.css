@@ -16,7 +16,8 @@ align-items: center;
 font-size: 28px;
 }
 
-.mmm-ecoflow-online {
+.mmm-ecoflow-status-online {
+float: right;
 color: #6bd968;
 }
 
@@ -81,7 +82,7 @@ border: 1px solid rgba(255,0,0,0.35);
 background: rgba(255,0,0,0.08);
 }
 
-.mmm-ecoflow-status {
+.mmm-ecoflow-status-offline {
 color: rgb(250, 60, 60);
 float: right;
 /*margin-left: 134px;   */
