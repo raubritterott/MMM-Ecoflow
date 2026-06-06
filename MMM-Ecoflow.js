@@ -110,7 +110,7 @@ Module.register("MMM-Ecoflow",
       wrapper.innerHTML = `
           <div class="mmm-ecoflow-offline">
               <span class="mmm-ecoflow-header">⚡ EcoFlow Stream</span>
-              <span class="mmm-ecoflow-status">🔴 Offline</span>
+              <span class="mmm-ecoflow-status-offline">🔴 Offline</span>
               <div class="mmm-ecoflow-small">
                   MQTT: ${this.mqtt_connected}
               </div>
@@ -125,7 +125,7 @@ Module.register("MMM-Ecoflow",
 
           <div class="mmm-ecoflow-header">
               <span><i class="fa-solid fa-solar-panel"></i> EcoFlow Stream</span>
-              <span class="mmm-ecoflow-online">🟢 Online</span>
+              <span class="mmm-ecoflow-status-online">🟢 Online</span>
           </div>
 
           <div class="mmm-ecoflow-name">
