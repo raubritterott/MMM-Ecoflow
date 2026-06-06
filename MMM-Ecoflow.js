@@ -124,17 +124,17 @@ Module.register("MMM-Ecoflow",
       <div class="mmm-ecoflow-card">
 
           <div class="mmm-ecoflow-header">
-              <span>⚡ EcoFlow Stream</span>
+              <span><i class="fa-solid fa-solar-panel"></i> EcoFlow Stream</span>
               <span class="mmm-ecoflow-online">🟢 Online</span>
           </div>
 
-          <div class="mmm-ecoflow-deviceName">
+          <div class="mmm-ecoflow-name">
               ${this.device_name}
           </div>
 
           <div class="mmm-ecoflow-power">
               <div class="mmm-ecoflow-big-value">
-                  ${this.grid_watts} W
+                 ⚡ ${this.grid_watts} W
               </div>
               <div class=".mmm-ecoflow-medium">
                   Netzleistung
