@@ -7,9 +7,13 @@
 For more information see Ecoflow IoT Developer Platform (https://developer-eu.ecoflow.com/us/document/introduction).
 
 
-## Screenshot
+## Screenshots
 
+### Online State State
 ![Example of MMM-Ecoflow](./example_1.png)
+
+### Offline State
+![Example of MMM-Ecoflow](./example_2.png)
 
 ## Installation
 
