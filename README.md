@@ -17,7 +17,44 @@ For more information see Ecoflow IoT Developer Platform (https://developer-eu.ec
 
 ## Installation
 
-### Install
+### Script Installation
+
+Install python and venv
+
+```bash
+sudo apt update
+sudo apt install python3 python3-venv python3-pip
+```
+
+Create Ecoflow folder and switch to it. -> Copy EcoflowMQTT.py into the folder
+```bash
+mkdir Ecoflow
+cd Ecoflow
+python3 -m venv venv
+source venv/bin/activate
+```
+
+Create and activate virtual environment: cd ~/Ecoflow && source venv/bin/activate
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+Install dependencies
+```bash
+pip install requests paho-mqtt
+```
+
+Run script with pm2
+```bash
+pm2 start venv/bin/python --name ecoflowmqtt -- EcoflowMQTT.py
+```
+Save pm2 process list: 
+```bash
+pm2 save
+```
+
+### Module Installation
 
 In your terminal, go to the modules directory and clone the repository:
 
@@ -26,7 +63,7 @@ cd ~/MagicMirror/modules
 git clone https://github.com/raubritterott/MMM-Ecoflow
 ```
 
-### Update
+### Module Update
 
 Go to the module directory and pull the latest changes:
 
