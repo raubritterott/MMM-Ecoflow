@@ -1,33 +1,74 @@
 
 
-# MMM-SwitchBot
+# MMM-Ecoflow
 
-*MMM-SwitchBot* is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) that displays that displays data of your SwitchBot sensors exposed by the Switchbot API.
+*MMM-Ecoflow* is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) that displays data of your Ecoflow Stream Inverter exposed by Ecoflow-MQTT-Bridge..
 
-For more information on the API [API](htttps://github.com/OpenWonderLabs/SwitchBotAPI).
+For more information see Ecoflow IoT Developer Platform (https://developer-eu.ecoflow.com/us/document/introduction).
 
 
-## Screenshot
+## Screenshots
 
-![Example of MMM-SwitchBot](./example_1.png)
+### Online State State
+![Example of MMM-Ecoflow](./example_online.png)
+
+### Offline State
+![Example of MMM-Ecoflow](./example_offline.png)
 
 ## Installation
 
-### Install
+### Script Installation
+
+Install python and venv
+
+```bash
+sudo apt update
+sudo apt install python3 python3-venv python3-pip
+```
+
+Create Ecoflow folder and switch to it. -> Copy EcoflowMQTT.py into the folder
+```bash
+mkdir Ecoflow
+cd Ecoflow
+python3 -m venv venv
+source venv/bin/activate
+```
+
+Create and activate virtual environment
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+Install dependencies
+```bash
+pip install requests paho-mqtt
+```
+
+Run script with pm2
+```bash
+pm2 start venv/bin/python --name ecoflowmqtt -- EcoflowMQTT.py
+```
+Save pm2 process list: 
+```bash
+pm2 save
+```
+
+### Module Installation
 
 In your terminal, go to the modules directory and clone the repository:
 
 ```bash
 cd ~/MagicMirror/modules
-git clone https://github.com/raubritterott/MMM-SwitchBot
+git clone https://github.com/raubritterott/MMM-Ecoflow
 ```
 
-### Update
+### Module Update
 
 Go to the module directory and pull the latest changes:
 
 ```bash
-cd ~/MagicMirror/modules/MMM-SwitchBot
+cd ~/MagicMirror/modules/MMM-Ecoflow
 git pull
 ```
 
@@ -41,14 +82,11 @@ Minimal configuration to use the module:
 
 ```js
     {
-        module: 'MMM-SwitchBot',
+        module: 'MMM-Ecoflow',
         position: "top_right",
         config: {
-            token: 'yourToken',     // SwitchBot app developer settings
-            secret: 'yourSecret',   // SwitchBot app developer settings
             updateInterval: 60000,
-            deviceId: 'deviceId',   // mac of your SwitchBot device 
-            displayName: 'NameDisplayedOnTheMirror'
+			apiEndpoint: "https://127.0.0.1:5000/api/ecoflow/flat"
         }
 	},
 ```
@@ -57,14 +95,11 @@ Configuration with all options:
 
 ```js
     {
-        module: 'MMM-SwitchBot',
+        module: 'MMM-Ecoflow',
         position: "top_right",
         config: {
-            token: 'yourToken',     // SwitchBot app developer settings
-            secret: 'yourSecret',   // SwitchBot app developer settings
             updateInterval: 60000,
-            deviceId: 'deviceId',   // mac of your SwitchBot device 
-            displayName: 'NameDisplayedOnTheMirror'
+			apiEndpoint: "https://127.0.0.1:5000/api/ecoflow/flat"
         }
 	},
 ```

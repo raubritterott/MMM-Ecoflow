@@ -1,8 +1,8 @@
 {
-  "name": "MMM-SwitchBot",
+  "name": "MMM-Ecoflow",
   "version": "1.0.0",
-  "description": "MMM-SwitchBot is a module for MagicMirror² that displays that displays data of your SwitchBot sensors exposed by the Switchbot API.",
-  "main": "MMM-SwitchBot.js",
+  "description": "MMM-Ecoflow is a module for MagicMirror² that displays data of your Ecoflow Stream Inverter exposed by Ecoflow-MQTT-Bridge.",
+  "main": "MMM-Ecoflow.js",
   "scripts": {
     "lint": "eslint",
     "lint:fix": "eslint --fix",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/raubritterott/MMM-SwitchBot.git"
+    "url": "git+https://github.com/raubritterott/MMM-Ecoflow.git"
   },
   "keywords": [
     "template"
@@ -18,9 +18,9 @@
   "author": "Andreas Ott",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/raubritterott/MMM-SwitchBot/issues"
+    "url": "https://github.com/raubritterott/MMM-Ecoflow/issues"
   },
-  "homepage": "https://github.com/raubritterott/MMM-SwitchBot#readme",
+  "homepage": "https://github.com/raubritterott/MMM-Ecoflow#readme",
   "devDependencies": {
     "@eslint/css": "^0.9.0",
     "@eslint/js": "^9.30.1",
