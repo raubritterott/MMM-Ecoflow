@@ -34,7 +34,7 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-Create and activate virtual environment: cd ~/Ecoflow && source venv/bin/activate
+Create and activate virtual environment
 ```bash
 python3 -m venv venv
 source venv/bin/activate
